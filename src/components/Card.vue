@@ -43,24 +43,7 @@ export default {
       isEdit: false,
     };
   },
-  watch: {
-    '$route.params.id': {
-      immediate: true,
-      handler(newId) {
-        // Здесь вы можете загрузить данные задачи по ID
-        // Например, через API или из Vuex
-        this.loadTask(newId);
-      },
-    },
-  },
   methods: {
-    loadTask(id) {
-      // Загрузите данные задачи по ID
-      // Пример:
-      // const task = this.$store.getters.getTaskById(id);
-      // this.description = task.value;
-      // this.important = task.important;
-    },
     toggleEdit() {
       this.isEdit = !this.isEdit;
       this.tempDescription = this.description; 

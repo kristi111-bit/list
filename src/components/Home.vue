@@ -16,65 +16,17 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import Card from './Card.vue';
 
 export default {
   components: { Card },
-  data() {
-    return {
-      inputValues: [],
-      showImportant: false,
-    };
+  computed: {
+    ...mapGetters(['inputValues']),
   },
   methods: {
-    addNewInput() {
-      const newInput = {
-        value: '',
-        important: false,
-        editing: false,
-        id: Date.now()
-      };
-      this.inputValues.push(newInput);
-      this.updateLS();
-    },
-    saveInput({ id, updatedInput }) {
-      const index = this.inputValues.findIndex(input => input.id === id);
-      if (index !== -1) {
-        this.inputValues[index] = { ...updatedInput, id };
-        this.updateLS();
-      }
-    },
-    deleteInput(id) {
-      this.inputValues = this.inputValues.filter(input => input.id !== id);
-      this.updateLS();
-    },
-    toggleImportant(id) {
-      const index = this.inputValues.findIndex(input => input.id === id);
-      if (index !== -1) {
-        const task = this.inputValues[index];
-        task.important = !task.important;
-        this.inputValues.splice(index, 1);
-        if (task.important) {
-          this.inputValues.unshift(task);
-        } else {
-          this.inputValues.push(task);
-        }
-        this.updateLS();
-      }
-    },
-    updateLS() {
-      localStorage.setItem('todos', JSON.stringify(this.inputValues));
-    },
-    getTodosLS() {
-      return JSON.parse(localStorage.getItem('todos'));
-    }
+    ...mapActions(['addNewInput', 'saveInput', 'deleteInput', 'toggleImportant']),
   },
-  mounted() {
-    const storedTodos = this.getTodosLS();
-    if (storedTodos) {
-      this.inputValues = storedTodos;
-    }
-  }
 };
 </script>
 

@@ -1,28 +1,26 @@
 <template>
   <div>
     <h1>[ My - p r o f i l e ]</h1>
-    <img :src="profileImage" alt="Profile Image" class="profile-image">
+    <img :src="profile.profileImage" alt="Profile Image" class="profile-image">
     <div class="container">
-      <div class="block">Name: Christina</div>
-      <div class="block">Age: 19</div>
-      <div class="block">Zodiac sign: Lion</div>
-            <div class="block">Profession: Programmer</div>
-      <div class="block">City: Rostov-on-Don</div>
-      <div class="block">Country: Russia</div>
+      <div class="block">Name: {{ profile.name }}</div>
+      <div class="block">Age: {{ profile.age }}</div>
+      <div class="block">Zodiac sign: {{ profile.zodiacSign }}</div>
+      <div class="block">Profession: {{ profile.profession }}</div>
+      <div class="block">City: {{ profile.city }}</div>
+      <div class="block">Country: {{ profile.country }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import profileImage from '@/assets/кот.jpg';
+import { mapGetters } from 'vuex';
 
 export default {
-  name: 'App',
-  data() {
-    return {
-      profileImage
-    };
-  }
+  name: 'About',
+  computed: {
+    ...mapGetters(['profile']),
+  },
 };
 </script>
 
@@ -36,8 +34,8 @@ h1 {
 .profile-image {
   display: block;
   margin: 45px auto;
-  width: 266px; /* Ширина изображения */
-  height: auto; /* Высота изображения */
+  width: 266px; 
+  height: auto;
   border-radius: 5px;
   margin-left: 490px;
 }
