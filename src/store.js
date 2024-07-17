@@ -1,64 +1,59 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   state: {
-    inputValues: JSON.parse(localStorage.getItem('todos')) || [],
+    inputValues: [],
+    profile: {
+      profileImage: '@/assets/кот.jpg',
+      name: 'Christina',
+      age: 19,
+      zodiacSign: 'Lion',
+      profession: 'Programmer',
+      city: 'Rostov-on-Don',
+      country: 'Russia'
+    }
   },
-  mutations: {
-    ADD_INPUT(state, newInput) {
-      state.inputValues.push(newInput);
-      localStorage.setItem('todos', JSON.stringify(state.inputValues));
-    },
-    SAVE_INPUT(state, { id, updatedInput }) {
-      const index = state.inputValues.findIndex(input => input.id === id);
-      if (index !== -1) {
-        Vue.set(state.inputValues, index, { ...updatedInput, id });
-        localStorage.setItem('todos', JSON.stringify(state.inputValues));
-      }
-    },
-    DELETE_INPUT(state, id) {
-      state.inputValues = state.inputValues.filter(input => input.id !== id);
-      localStorage.setItem('todos', JSON.stringify(state.inputValues));
-    },
-    TOGGLE_IMPORTANT(state, id) {
-      const index = state.inputValues.findIndex(input => input.id === id);
-      if (index !== -1) {
-        const task = state.inputValues[index];
-        task.important = !task.important;
-        state.inputValues.splice(index, 1);
-        if (task.important) {
-          state.inputValues.unshift(task);
-        } else {
-          state.inputValues.push(task);
-        }
-        localStorage.setItem('todos', JSON.stringify(state.inputValues));
-      }
-    },
+  getters: {
+    inputValues: state => state.inputValues,
+    profile: state => state.profile
   },
   actions: {
     addNewInput({ commit }) {
       const newInput = {
+        id: Date.now(),
         value: '',
-        important: false,
-        editing: false,
-        id: Date.now()
+        important: false
       };
       commit('ADD_INPUT', newInput);
     },
-    saveInput({ commit }, payload) {
-      commit('SAVE_INPUT', payload);
+    saveInput({ commit }, { id, updatedInput }) {
+      commit('SAVE_INPUT', { id, updatedInput });
     },
     deleteInput({ commit }, id) {
       commit('DELETE_INPUT', id);
     },
     toggleImportant({ commit }, id) {
       commit('TOGGLE_IMPORTANT', id);
+    }
+  },
+  mutations: {
+    ADD_INPUT(state, newInput) {
+      state.inputValues.push(newInput);
     },
-  },
-  getters: {
-    inputValues: state => state.inputValues,
-  },
+    SAVE_INPUT(state, { id, updatedInput }) {
+      const index = state.inputValues.findIndex(input => input.id === id);
+      if (index !== -1) {
+        state.inputValues[index] = updatedInput;
+      }
+    },
+    DELETE_INPUT(state, id) {
+      state.inputValues = state.inputValues.filter(input => input.id !== id);
+    },
+    TOGGLE_IMPORTANT(state, id) {
+      const index = state.inputValues.findIndex(input => input.id === id);
+      if (index !== -1) {
+        state.inputValues[index].important = !state.inputValues[index].important;
+      }
+    }
+  }
 });

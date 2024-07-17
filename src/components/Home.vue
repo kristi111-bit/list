@@ -5,9 +5,10 @@
       <Card
         :inputValue="inputValue"
         :index="index"
-        @deleteInput="deleteInput"
+        @deleteInput="handleDeleteInput"
         @saveInput="saveInput"
         @toggleImportant="toggleImportant"
+        @moveToTop="moveToTop"
       />
     </div>
     <button class="dd" @click="addNewInput">СОЗДАТЬ</button>
@@ -26,6 +27,16 @@ export default {
   },
   methods: {
     ...mapActions(['addNewInput', 'saveInput', 'deleteInput', 'toggleImportant']),
+    handleDeleteInput(id) {
+      this.deleteInput(id);
+    },
+    moveToTop(id) {
+      const index = this.inputValues.findIndex(input => input.id === id);
+      if (index > -1) {
+        const [item] = this.inputValues.splice(index, 1);
+        this.inputValues.unshift(item);
+      }
+    },
   },
 };
 </script>
@@ -58,13 +69,13 @@ h1 {
 p {
   color: #000000;
   font-size: 20px;
-  margin-right: 800px;
+  margin-right: 730px;
 }
 
 .container {
   height: 15px;
   margin: 10px;
-  padding: 20px;
+  padding: 29px;
   width: 1000px;
   background: #E0F6E2;
   overflow: hidden;
