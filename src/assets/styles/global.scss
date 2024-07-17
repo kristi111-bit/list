@@ -1,0 +1,153 @@
+v-list {
+  margin-left: 305px;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-left: 30px;
+  color: rgb(0, 0, 0);
+  background: #ccf3bf;
+  padding: 10px;
+  padding-left: 21px;
+  padding-right: 21px;
+  border-radius: 5px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: #000000;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.dd {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  background: #ccf3bf;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+p {
+  color: #000000;
+  font-size: 20px;
+  margin-right: 730px;
+}
+
+.container {
+  height: 15px;
+  margin: 10px;
+  padding: 29px;
+  width: 1000px;
+  background: #E0F6E2;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.wrapper-card {
+  margin-top: -12px;
+  margin-left: 1px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-text {
+  max-width: 800px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapper-edit-block {
+  display: flex;
+  margin-right: -29px;
+  margin-left: -29px;
+  max-width: 1100px;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid green;
+  margin-top: -29px;
+}
+
+.wrapper-edit-block__buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.icon-btn1,
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+.img {
+  width: 20px;
+  height: 20px;
+}
+
+.gg {
+  margin-top: 5px;
+  margin-bottom: 40px;
+  color: rgb(12, 83, 2);
+  text-align: center;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 266px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.containera {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ffffff;
+  max-width: 500px;
+}
+
+.blocka {
+  width: 100%;
+  padding: 20.7px;
+  margin: 10px;
+  margin-left: 40px;
+  background: linear-gradient(45deg, #c4893b, #72a736);
+  border-radius: 5px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+}

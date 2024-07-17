@@ -42,43 +42,5 @@ export default {
 </script>
 
 <style scoped>
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-h1 {
-  color: #000000;
-  text-align: center;
-  font-weight: normal;
-  margin-bottom: 20px;
-}
-
-.dd {
-  margin-top: 30px;
-  margin-bottom: 10px;
-  background: #ccf3bf;
-  border: none;
-  padding: 15px 25px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-p {
-  color: #000000;
-  font-size: 20px;
-  margin-right: 730px;
-}
-
-.container {
-  height: 15px;
-  margin: 10px;
-  padding: 29px;
-  width: 1000px;
-  background: #E0F6E2;
-  overflow: hidden;
-  border-radius: 5px;
-}
+@import '@/assets/styles/_variables.scss';
 </style>

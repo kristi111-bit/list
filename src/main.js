@@ -3,9 +3,22 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import { createVuetify } from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
+import 'vuetify/styles'; // Используем стили Vuetify
+import '@mdi/font/css/materialdesignicons.css'; // Иконки Material Design
 
-const vuetify = createVuetify();
+// Импортируем ваши глобальные стили
+import './assets/styles/global.scss';
+
+const vuetify = createVuetify({
+  theme: {
+    themes: {
+      light: {
+        primary: '#3498db',
+        secondary: '#2ecc71',
+      },
+    },
+  },
+});
 
 createApp(App)
   .use(router)

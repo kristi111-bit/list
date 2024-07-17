@@ -31,20 +31,5 @@ export default {
 </script>
 
 <style scoped>
-v-list {
-  margin-left: 305px;
-}
-
-.nav-item {
-  display: inline-block;
-  margin-right: 10px;
-  margin-top: 20px;
-  margin-left: 30px;
-  color: rgb(0, 0, 0);
-  background: #ccf3bf;
-  padding: 10px;
-  padding-left: 21px;
-  padding-right: 21px;
-  border-radius: 5px;
-}
+@import '@/assets/styles/_variables.scss';
 </style>
